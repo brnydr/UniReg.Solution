@@ -1,0 +1,28 @@
+body {
+  font-family: 'roboto', sans-serif;
+  text-shadow: rgba(10, 10, 10, 1) 5px 5px 10px;
+  background-image: url('https://grammarist.com/wp-content/uploads/Grammarist-Featured-Image-V4-97.png');
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-color: rgb(212, 225, 223);
+  color:rgb(85, 85, 85);
+  text-align: center;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  padding-bottom: 25%;
+}
+
+a:link {
+  color:rgb(85, 85, 85);
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  color: white;
+  filter: drop-shadow(0 0 25px white);
+}
