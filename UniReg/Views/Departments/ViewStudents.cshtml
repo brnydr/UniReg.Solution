@@ -1,6 +1,6 @@
 
 @{
-  Layout = "_Layout.cshtml";
+  Layout = "_Layout";
 }
 
 @model UniReg.Models.Department;
@@ -17,6 +17,6 @@ else
 {
   @foreach(Student s in Model.Students)
   {
-    <p>@s.Name</p>
+    <p>@Html.ActionLink($"{s.Name}", "Details", "Students", new { id = s.StudentId}) </p>
   }
 }

@@ -1,0 +1,20 @@
+@{
+  Layout = "_Layout";
+}
+
+<h2>Add a new student</h2>
+
+@model UniReg.Models.Student
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(m => m.Name)
+  @Html.TextBoxFor(m => m.Name)
+  @Html.LabelFor(m => m.Department)
+  @Html.DropDownList("DepartmentId")
+  <input type="submit" value="Add" class="btn btn-primary"/>
+  
+}
+
+<p>@Html.ActionLink("Show all student" , "Index")</p>
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
