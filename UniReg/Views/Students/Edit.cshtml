@@ -4,9 +4,8 @@
 
 @model UniReg.Models.Student
 
-<h2>Edit Student</h2>
+<h2>Edit Student Profile</h2>
 
-<h4>Edit this item: @Html.DisplayFor(model => model.Name)</h4>
 
 @using (Html.BeginForm())
 {
@@ -19,7 +18,7 @@
   <!-- viewbag DepartmentyId property implicitly passed in above -->
   <input type="submit" value="Save" />
 }
-<h3>@Html.ActionLink("Add courses", "AddCourses", new { id = Model.StudentId})</h3>
+<h3>@Html.ActionLink("Add courses", "AddCourse", new { id = Model.StudentId})</h3>
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Back to Home", "Index", "Home")</p>

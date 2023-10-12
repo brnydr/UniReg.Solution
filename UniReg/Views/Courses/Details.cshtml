@@ -8,14 +8,15 @@
 <h2>Course Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<h4>Department: @Html.DisplayFor(model => model.Department.Name)</h4>
 
 @if(@Model.JoinEntities.Count == 0)
 {
-  <p>This course does not belong to any students</p>
+  <p>No students are enrolled in this course</p>
 }
 else
 {
-  <h4>Students the course belongs to:</h4>
+  <h4>@Html.ActionLink("View Students Enrolled", "ViewStudents")</h4>
   <ul>
   @foreach(CourseStudent join in Model.JoinEntities)
   {

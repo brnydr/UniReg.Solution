@@ -8,15 +8,16 @@
 @using System.Collections.Generic;
 
 <h2>Students Majoring in @Model.Name</h2>
- 
 @if (Model.Students.Count == 0)
 {
     <p>No students are majoring in @Model.Name.</p>
 }
 else
 {
+  <ul>
   @foreach(Student s in Model.Students)
   {
-    <p>@Html.ActionLink($"{s.Name}", "Details", "Students", new { id = s.StudentId}) </p>
+    <li>@Html.ActionLink($"{s.Name}", "Details", "Students", new { id = s.StudentId}) </li>
   }
+  </ul>
 }

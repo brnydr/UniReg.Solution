@@ -8,16 +8,27 @@
 
  @model UniReg.Models.Student;
  
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>  
-<h3>@Html.DisplayNameFor(model => model.Department): @Html.DisplayFor(model => model.Department)</h3>
+<h3>@Html.DisplayFor(model => model.Name)</h3>  
+<h4>@Html.DisplayFor(model => model.Department.Name) Major</h2>
 
-<h2>Courses</h2>
+<h2>Enrolled Courses:</h2>
 <ul>
-  @foreach (CourseStudent join in Model.JoinEntities)
+  @if(Model.JoinEntities.Count() == 0 )
   {
-    <li>@join.Course.Name</li>
+    <p>This student is not enrolled in any courses.</p>
   }
-  
-..
+  else
+  {
+    @foreach (CourseStudent join in Model.JoinEntities)
+    {
+      <li>@join.Course.Name</li>
+      @using (Html.BeginForm("DeleteJoin", "Students"))
+      {
+        @Html.Hidden("joinId", @join.CourseStudentId)
+        <input type="submit" value="Unenroll" />
+      }
+    }
+  }
+...
 <p>@Html.ActionLink("Edit courses or major", "Edit", new { id = Model.StudentId})</p>
 <p>@Html.ActionLink("Delete Student", "Delete", new { id = Model.StudentId}) </p>

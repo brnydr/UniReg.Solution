@@ -102,9 +102,10 @@ namespace UniReg.Controllers
     public ActionResult DeleteJoin(int joinId)
     {
       CourseStudent joinEntry = _db.CourseStudents.FirstOrDefault(entry => entry.CourseStudentId == joinId);
+      int studentId = joinEntry.StudentId;
       _db.CourseStudents.Remove(joinEntry);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", new { id = studentId } );
     }
   }
 }
