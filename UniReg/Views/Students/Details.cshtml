@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+<h2>Details about @Model.Name</h2>
+
+ @using UniReg.Models;
+
+ @model UniReg.Models.Student;
+ 
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>  
+<h3>@Html.DisplayNameFor(model => model.Department): @Html.DisplayFor(model => model.Department)</h3>
+
+<h2>Courses</h2>
+<ul>
+  @foreach (CourseStudent join in Model.JoinEntities)
+  {
+    <li>@join.Course.Name</li>
+  }
+  
+..
+<p>@Html.ActionLink("Edit courses or major", "Edit", new { id = Model.StudentId})</p>
+<p>@Html.ActionLink("Delete Student", "Delete", new { id = Model.StudentId}) </p>

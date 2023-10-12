@@ -1,0 +1,25 @@
+@{
+  Layout ="_Layout";
+}
+
+@model UniReg.Models.Student
+
+<h2>Edit Student</h2>
+
+<h4>Edit this item: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.StudentId)
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
+  <br>
+  @Html.LabelFor(model => model.Department)
+  @Html.DropDownList("DepartmentId") 
+  <!-- viewbag DepartmentyId property implicitly passed in above -->
+  <input type="submit" value="Save" />
+}
+<h3>@Html.ActionLink("Add courses", "AddCourses", new { id = Model.StudentId})</h3>
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
