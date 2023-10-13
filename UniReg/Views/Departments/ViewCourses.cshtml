@@ -1,0 +1,23 @@
+
+@{
+  Layout = "_Layout";
+}
+
+@model UniReg.Models.Department;
+@using UniReg.Models;
+@using System.Collections.Generic;
+
+<h2>Courses in @Model.Name</h2>
+@if (Model.Courses.Count == 0)
+{
+    <p>There are currently no courses being offered in @Model.Name.</p>
+}
+else
+{
+  <ul>
+  @foreach(Course course in Model.Courses)
+  {
+    <li>@Html.ActionLink($"{course.Name}", "Details", "Courses", new { id = course.CourseId}) </li>
+  }
+  </ul>
+}
