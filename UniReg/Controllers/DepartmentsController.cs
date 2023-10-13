@@ -54,6 +54,14 @@ namespace UniReg.Controllers
           return View(thisDepartment);
       }
 
+      public ActionResult ViewCourses(int id)
+      {
+        Department thisDepartment = _db.Departments
+          .Include(department => department.Courses)
+          .FirstOrDefault(department => department.DepartmentId == id);
+          return View(thisDepartment);
+      }
+
 
     }
 }
