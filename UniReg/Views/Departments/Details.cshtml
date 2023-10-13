@@ -19,6 +19,15 @@ else
 <p>@Html.ActionLink("View Students", "ViewStudents", new { id = Model.DepartmentId})</p>
 }
 
+@if(@Model.Courses.Count == 0)
+{
+  <p>There are no courses currently in session.</p>
+}
+else
+{
+<p>@Html.ActionLink("View Courses", "ViewCourses", new { id = Model.DepartmentId})</p>
+}
+
 <p>@Html.ActionLink("Back to all Departments", "Index")</p>
 <p>@Html.ActionLink("Edit Department", "Edit", new { id = Model.DepartmentId })</p>
 <p>@Html.ActionLink("Delete Department", "Delete", new { id = Model.DepartmentId })</p>
