@@ -46,5 +46,23 @@ namespace UniReg.Controllers
         .FirstOrDefault(course => course.CourseId == id);
       return View(thisCourse);
     }
+
+    public ActionResult Edit(int id)
+    {
+
+      Course thisCourse = _db.Courses.FirstOrDefault(course => course.CourseId == id);
+      string defaultValue = thisCourse.DepartmentId.ToString();
+      ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "Name", defaultValue);
+      return View(thisCourse);
+    }
+    [HttpPost]
+    public ActionResult Edit(Course course)
+    {
+      _db.Courses.Update(course);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    
   }
 }
